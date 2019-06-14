@@ -65,11 +65,11 @@ done.
 	
 	python manage.py runserver
 		
-![runserver.png](picture1/runserver.png)
+![runserver.png](document/picture1/runserver.png)
 
 #### 打开无痕浏览模式（防止缓存），在浏览器输入http://127.0.0.1:8000/如下图：
 
-![djangostart.png](picture1/djangostart.png)
+![djangostart.png](document/picture1/djangostart.png)
 
 由于Django是一个世界性的项目，所以它是支持国际化的。下面我们做一些设置：
 进入mysite/setting.py文件：修改如下：
@@ -80,7 +80,7 @@ done.
 
 然后你就返现内容变成中文了，如下图：
 
-![setting.png](picture1/setting.png)
+![setting.png](document/picture1/setting.png)
 
 
 <h3 id='2'></h3>
@@ -95,7 +95,7 @@ done.
 
 现在文件结构目录如下：
 
-![directory.png](picture1/directory.png)
+![directory.png](document/picture1/directory.png)
 
 ### 项目结构分析
 > * 根目录`myblog`下有两个文件：
