@@ -1,3 +1,8 @@
 from django.shortcuts import render
+# 导入HTTPResponse模块
+from django.http import HttpResponse
 
-# Create your views here.
+
+def article_list(request):
+    return HttpResponse('Hello World!')
+
