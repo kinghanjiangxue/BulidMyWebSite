@@ -1,0 +1,27 @@
+
+{#载入静态文件#}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{#网站采用的字符编码#}
+    <meta charset="UTF-8">
+{#网站预留标题位置#}
+    <title>{% block title %}{% endblock title %}</title>
+{#引入Bootstrap的css文件#}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+
+<body>
+
+{#引入导航栏#}
+    {% include 'header.html' %}
+{#预留页面的位置#}
+    {% block content %} {% endblock content %}
+{#引入注脚#}
+    {% include 'footer.html' %}
+{#引入Bootstrap的js文件#}
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

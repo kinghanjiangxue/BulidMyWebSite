@@ -1,0 +1,43 @@
+{# extends 表明此页面继承自 base.html#}
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{# 写入base.html中预留定义的title#}
+{% block title %}
+    首页
+{% endblock title %}
+
+
+{# 写入base.html中预留定义的content#}
+{% block content %}
+
+{# 定义放置文章标题的div容器#}
+<div class="container">
+      <div class="row mt-2">
+
+          {% for article in articles %}
+
+{#            文章内容#}
+           <div class="col-4 mb-4">
+
+{#             卡片容器#}
+                <div class="card h-100">
+{#                   标题#}
+                    <h4 class="card-header">{{ article.title }}</h4>
+{#                    摘要#}
+                    <div class="card-body">
+                        <p class="card-text">{{ article.body|slice:'30' }}...</p>
+                    </div>
+{#                    注脚#}
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary"> 阅读全文</a>
+                    </div>
+                </div>
+           </div>
+          {% endfor %}
+
+      </div>
+</div>
+
+{% endblock content %}
+
