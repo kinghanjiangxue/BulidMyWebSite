@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{#写入base.html中定义的title#}
+{% block title %}
+    文章详情
+{% endblock title %}
+
+{#写入base.html中定义的content#}
+{% block content %}
+
+{#文章详情    #}
+ <div class="container">
+        <div class="row">
+{#            标题及作者#}
+            <h1 class="col-12 mt-4 mb-4">{{ article.title }}</h1>
+            <div class="col-12 alert alert-success">作者：{{ article.author }} </div>
+{#            文章正文#}
+            <div class="col-12">
+                <p>{{ article.body|safe }}</p>
+            </div>
+        </div>
+ </div>
+{% endblock content %}
