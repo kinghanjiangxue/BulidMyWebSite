@@ -235,4 +235,19 @@ Pygments是一种通用的语法高亮器，可以帮助我们自动生成美化
 
 接下来我们在`base.html`文件里面引入这个文件：
 
+```
+<head>
+...
+...
+{#引入monokai.css文件#}
+    <link rel="stylesheet" href="{% static 'md_css/monokai.css'%}">
+</head>
+```
 
+重启服务，刷新浏览器，会看到如下内容
+
+![highmarkdown.png](picture4/highmarkdown.png)
+
+>这里展示的是monokia这个深色的样式，除了这个之外，Pygments还内置了很多[其他的颜色](https://github.com/richleland/pygments-css)，根据自己的喜好选择就好了。
+>
+>至于自定义样式，这些高端用法，还是以后熟悉了，慢慢探索，兴趣是组好的老师，如果页面丑的你自己都看不下去，这时候你肯定会想办法去改观的。
