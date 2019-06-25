@@ -18,18 +18,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url "article:article_create" %}">写文章</a>
                 </li>
+
 {#                使用Django的if模板语句#}
                 {% if user.is_authenticated %}
 {#                如果用户已经登录，则显示用户名下拉框#}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropDown" role="button" data-togglr="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ user.username }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropDown">
-                        <a class="dropdown-item" href="#">退出登录</a>
+                        <a class="dropdown-item" href="{% url 'userprofile:logout' %}">退出登录</a>
                     </div>
                 </li>
-                如果用户未登录
+{#                如果用户未登录#}
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'userprofile:login' %}">登录</a>
@@ -37,7 +38,5 @@
                 {% endif %}
             </ul>
         </div>
-
     </div>
-
 </nav>

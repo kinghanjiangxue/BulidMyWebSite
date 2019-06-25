@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from .forms import UserLoginForm
 
@@ -29,3 +29,8 @@ def user_login(request):
     else:
         return HttpResponse('请使用GET或者POST请求数据')
 
+
+# 用户退出登录
+def user_logout(request):
+    logout(request)
+    return redirect('article:article_list')
