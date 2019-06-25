@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
-from .forms import UserLoginForm
+from .forms import UserLoginForm, UserRegisterForm
 
 
 def user_login(request):
@@ -34,3 +34,27 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('article:article_list')
+
+
+# 用户注册
+
+def user_register(request):
+    if request.method == 'POST':
+        user_register_form = UserRegisterForm(data=request.POST)
+        if user_register_form.is_valid():
+            new_user = user_register_form.save(commit=False)
+            # 设置密码
+            new_user.set_password(user_register_form.cleaned_data['password'])
+            new_user.save()
+            # 保存好数据后立即登录并返回博客页面
+            login(request, new_user)
+            return redirect('article:article_list')
+        else:
+            return HttpResponse('注册表单输入有误。请重新输入~')
+    elif request.method == 'GET':
+        user_register_form = UserRegisterForm()
+        context = {'form': user_register_form}
+        return render(request, 'userprofile/register.html', context)
+    else:
+        return HttpResponse('请使用GET或者POST请求数据')
+
