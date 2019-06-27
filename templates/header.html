@@ -1,3 +1,4 @@
+{% load staticfiles %}
 
 {#定义导航栏#}
 
@@ -40,6 +41,9 @@
             </ul>
         </div>
     </div>
+
+</nav>
+
 {% if user.is_authenticated %}
     <script>
         {#调用弹窗#}
@@ -48,11 +52,9 @@
                 title:'确认删除',
                 content: '确认要删除用户资料吗？',
                 yes:function (index, layero) {
-                    location.href={% url 'userprofile:delete' user.pk %}
-
+                    location.href='{% url 'userprofile:delete' user.pk %}'
                 }
             })
         }
     </script>
 {% endif %}
-</nav>
