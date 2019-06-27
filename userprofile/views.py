@@ -4,7 +4,8 @@ from django.http import HttpResponse
 from .forms import UserLoginForm, UserRegisterForm
 from django.contrib.auth.decorators import login_required # 验证登录的装饰器
 from django.contrib.auth.models import User
-
+from .forms import ProfileForm
+from .models import Profile
 
 def user_login(request):
     if request.method == 'POST':

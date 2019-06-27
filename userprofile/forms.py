@@ -3,6 +3,7 @@
 from django import forms
 # 引入User模型
 from django.contrib.auth.models import User
+from .models import Profile
 
 
 # 登录时候继承了forms.Form表单类
@@ -30,3 +31,9 @@ class UserRegisterForm(forms.ModelForm):
         else:
             raise forms.ValidationError('密码输入不一致，请重试')
 
+
+# 扩展字段
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('phone', 'avatar', 'bio')
