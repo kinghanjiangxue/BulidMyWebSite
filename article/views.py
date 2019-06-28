@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from .forms import ArticlePostForm
 # 引入User模型
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 
 # 文章列表
@@ -41,6 +42,7 @@ def article_detail(request, pk):
 
 
 # 写文章的视图
+@login_required(login_url='/userprofile/login/')
 def article_create(request):
     # 判断用户是否提交数据
     if request.method == 'POST':
@@ -51,10 +53,8 @@ def article_create(request):
             # 保存数据，但暂时不提交到数据库中
             new_article = article_post_form.save(commit=False)
 
-            # 指定数据库中id=1的用户作为作者
-            # 如果你进行过删除数据表的操作，可能会找不到id=1的用户
             # 此时请重新创建用户，并出入此用户的id
-            new_article.author = User.objects.get(id=1)
+            new_article.author = User.objects.get(id=request.user.pk)
             # 将文章保存到数据库中
             new_article.save()
 
@@ -73,6 +73,7 @@ def article_create(request):
 
 
 # 删除文章
+@login_required(login_url='/userprofile/login/')
 def article_delete(request, pk):
     # 根据对应的id去删除对应的文章
     article = ArticlePost.objects.get(pk=pk)
@@ -82,6 +83,7 @@ def article_delete(request, pk):
 
 
 # 编辑文章
+@login_required(login_url='userprofile/login/')
 def article_update(request, pk):
 
     """

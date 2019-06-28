@@ -128,14 +128,14 @@ STATICFILES_DIRS = (
 )
 
 # SMTP服务器，改为你邮箱的SMTP
-EMAIL_HOST = 'smtp.163.com'
+EMAIL_HOST = 'smtp.qq.com'
 # 改为你自己的邮箱名
-EMAIL_HOST_USER = 'wyykissrain@163.com'
+EMAIL_HOST_USER = '752643013@qq.com'
 # 你的邮箱密码
-EMAIL_HOST_PASSWORD = '@loveyou66'
+EMAIL_HOST_PASSWORD = 'dbnsaewdnoiubdbj'
 # 发送邮件的端口
-EMAIL_PORT = 25
+EMAIL_PORT = 587
 # 是否使用TLS
 EMAIL_USE_TLS = True
 # 默认的发件人
-DEFAULT_FROM_EMAIL = '寒江雪的博客<wyykissrain@163.com>'
+DEFAULT_FROM_EMAIL = '寒江雪的博客<752643013@qq.com>'
