@@ -10,19 +10,34 @@ from .forms import ArticlePostForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 
 # 文章列表
 def article_list(request):
 
-    # 根据GET请求中查询条件
-    # 返回不同的排序对象数组
-    if request.GET.get('order') == 'total_views':
-        article_list = ArticlePost.objects.all().order_by('-total_views')
-        order = 'total_views'
+    search = request.GET.get('search')
+    order = request.GET.get('order')
+    # 用户搜索逻辑
+    if search:
+        if order == 'total_views':
+            # 用Q对象进行联合搜索
+            article_list = ArticlePost.objects.filter(
+                Q(title__icontains=search) |
+                Q(body__icontains=search)
+            ).order_by('-total_views')
+        else:
+            article_list = ArticlePost.objects.filter(
+                Q(title__icontains=search) |
+                Q(body__icontains=search)
+            )
     else:
-        article_list = ArticlePost.objects.all()
-        order = 'normal'
+        # 将search参数置为空
+        search = ''
+        if order == 'total_views':
+            article_list = ArticlePost.objects.all().order_by('-total_views')
+        else:
+            article_list = ArticlePost.objects.all()
 
     # 每页显示1篇文章
     paginator = Paginator(article_list, 3)
@@ -33,7 +48,7 @@ def article_list(request):
     # 将导航栏对象相应的页码内容返回给 articles
     articles = paginator.get_page(page)
     # 需要传递给模板（templates）的对象
-    context = {'articles': articles, 'order': order}
+    context = {'articles': articles, 'order': order, 'search': search}
     # render函数，载入模板并返回context对象
     return render(request, 'article/list.html', context)
 
@@ -48,15 +63,20 @@ def article_detail(request, pk):
     article.save(update_fields=['total_views'])
 
     # 将Markdown语法渲染成HTML的样式
-    article.body = markdown.markdown(article.body,
-                                     extensions=[
-                                         # 包含缩写，表格等常用扩展
-                                         'markdown.extensions.extra',
-                                         # 语法高亮扩展
-                                         'markdown.extensions.codehilite',
-                                     ])
+    md = markdown.Markdown(
+        extensions=[
+            # 包含缩写，表格等常用扩展
+            'markdown.extensions.extra',
+            # 语法高亮扩展
+            'markdown.extensions.codehilite',
+            # 目录扩展
+            'markdown.extensions.toc',
+        ]
+    )
+    article.body = md.convert(article.body)
+
     # 需要传递给模板的对象
-    context = {'article': article}
+    context = {'article': article, 'toc': md.toc}
     # 载入模板，并返回context对象
     return render(request, 'article/detail.html', context)
 
