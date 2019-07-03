@@ -33,7 +33,41 @@
                     <p>{{ article.body|safe }}</p>
                 </div>
             </div>
-{#        新增目录#}
+
+{#        发表评论#}
+        <hr>
+        {% if user.is_authenticated %}
+            <div>
+                <form action="{% url 'comment:post_comment' article.pk %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="body"><strong>我也要评论：</strong></label>
+                        <textarea type="text" class="form-control" id="body" name="body" rows="2"></textarea>
+                    </div>
+{#                    提交按钮#}
+                    <button type="submit" class="btn btn-primary">发送</button>
+                </form>
+            </div>
+            <br>
+        {% else %}
+            <br>
+            <h5 class="row justify-content-center">请<a href="{% url 'userprofile:login' %}">登录</a>后回复</h5>
+            <br>
+        {% endif %}
+
+{#        显示评论#}
+        <h4>共有{{ comments.count }}条评论</h4>
+        <div>
+            {% for commment in comments %}
+                <hr>
+                <p>
+                    <strong style="color: black"> {{ commment.user }}</strong>于
+                    <span style="color: lightgray">{{ commment.created|date:'Y-m-d H:i:s' }}</span>时说：
+                </p>
+                <pre style="font-family: inherit; font-size: small">{{ commment.body }}</pre>
+            {% endfor %}
+        </div>
+{#        目录#}
             <div class="col-3 mt-4">
                 <h4><strong>目录</strong></h4>
                 <hr>

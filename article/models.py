@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 # timezone 用于处理时间相关的事务
 from django.utils import timezone
 
+from django.urls import reverse
+
 
 # 博客文章数据模型
 class ArticlePost(models.Model):
@@ -31,6 +33,9 @@ class ArticlePost(models.Model):
     # 函数 __str__定义当调用对象的str()方法的时候的返回值内容，这里后台管理系统的可以看到标题，不写这个看到的会是字段
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('article:article_detail', args=[self.pk])
 
     # 内部class Meta用于给model定义元数据
     class Meta:
