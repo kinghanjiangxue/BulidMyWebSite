@@ -49,26 +49,36 @@
           {% for article in articles %}
 
 {#            文章内容#}
-           <div class="col-4 mb-4">
+           <div class="col-12">
+
+{#                栏目#}
+               {% if article.column %}
+                   <button type="button" class="btn btn-sm mb-2 btn-success">{{ article.column }}</button>
+               {% endif %}
 
 {#             卡片容器#}
-                <div class="card h-100">
+
 {#                   标题#}
-                    <h4 class="card-header">{{ article.title }}</h4>
+               <h4 >
+                   <b>
+                       <a href="{% url 'article:article_detail' article.pk %}" style="color: black">{{ article.title }}</a>
+                   </b>
+               </h4>
 {#                    摘要#}
-                    <div class="card-body">
-                        <p class="card-text">{{ article.body|slice:'30' }}...</p>
-                    </div>
+               <div >
+                   <p style="color: gray">{{ article.body|slice:'100' }}...</p>
+               </div>
 {#                    注脚#}
-                    <div class="card-footer">
-                        <a href="{% url 'article:article_detail'  article.pk %}" class="btn btn-primary"> 阅读全文</a>
-{#                        显示浏览量#}
-                        <span>
-                            <small class="col align-right" style="color: gray">浏览：{{ article.total_views }}</small>
-                        </span>
-                    </div>
-                </div>
+
+                <P>
+{#                    附加信息#}
+                    <span style="color: green">{{ article.total_views }}浏览&nbsp;&nbsp;&nbsp;</span>
+                    <span style="color: blue">{{ article.created_time|date:'Y-m-d' }}发布&nbsp;&nbsp;&nbsp;</span>
+                    <span style="color: -moz-mac-accentdarkestshadow">{{ article.update_time|date:'Y-m-d' }}更新</span>
+                </P>
+                <hr>
            </div>
+
           {% endfor %}
 
       </div>
