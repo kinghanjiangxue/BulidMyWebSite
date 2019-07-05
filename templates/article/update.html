@@ -18,6 +18,22 @@
 {#                在value属性中指定文本框的初始值为旧的内容，即article对象中的title字段#}
                 <input type="text" class="form-control" id="title" name="title" value="{{ article.title }}">
             </div>
+{#            文章栏目#}
+            <div class="form-group">
+                <label for="column">栏目</label>
+                <select class="form-control" id="column" name="column">
+                    <option value="none">请选择栏目...</option>
+                    {% for column in columns %}
+                        <option value="{{ column.id }}"
+                        {% if column.id == article.pk %}
+                            selected
+                        {% endif %}
+                        >{{ column }}
+                        </option>
+                    {% endfor %}
+                </select>
+
+            </div>
             <div class="form-group">
                 <label for="body">文章正文</label>
 {#                文本不需要value属性，直接在标签中嵌入数据就可#}

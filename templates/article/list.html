@@ -56,7 +56,13 @@
                    <button type="button" class="btn btn-sm mb-2 btn-success">{{ article.column }}</button>
                {% endif %}
 
-{#             卡片容器#}
+{#                标签#}
+                <span>
+                    {% for tag in article.tags.all %}
+                        <a href="{% url 'article:article_list' %}?tag={{ tag }}" class="badge badge-secondary">{{ tag }}</a>
+                    {% endfor %}
+                </span>
+
 
 {#                   标题#}
                <h4 >

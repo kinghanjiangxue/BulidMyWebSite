@@ -8,6 +8,8 @@ from django.utils import timezone
 
 from django.urls import reverse
 
+from taggit.managers import TaggableManager
+
 
 # 栏目的model
 class ArticleColumn(models.Model):
@@ -33,6 +35,8 @@ class ArticlePost(models.Model):
     # 文章栏目"一对多"外键
     column = models.ForeignKey(ArticleColumn, null=True, blank=True, on_delete=models.CASCADE, related_name='article',
                                verbose_name='栏目')
+    # 文章标签
+    tags = TaggableManager(blank=True)
 
     # 文章标题。 model.CharField 为字符串字段，用于保存较短的字符串，比如标题.max_length指定字符最大长度
     title = models.CharField(max_length=100, verbose_name='标题')
