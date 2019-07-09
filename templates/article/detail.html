@@ -6,8 +6,13 @@
     文章详情
 {% endblock title %}
 
+
+
 {#写入base.html中定义的content#}
 {% block content %}
+
+<script src="{% static 'ckeditor/ckeditor/plugins/prism/lib/prism/prism_patched.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'prism/prism.css' %}">
 
 {#文章详情    #}
  <div class="container">
@@ -74,7 +79,7 @@
                     <strong style="color: black"> {{ commment.user }}</strong>于
                     <span style="color: lightgray">{{ commment.created|date:'Y-m-d H:i:s' }}</span>时评论：
                 </p>
-                <pre style="font-family: inherit; font-size: small">{{ commment.body }}</pre>
+                <pre style="font-family: inherit; font-size: small">{{ commment.body|safe }}</pre>
             {% endfor %}
         </div>
 
