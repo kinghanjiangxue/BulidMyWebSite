@@ -14,7 +14,7 @@
         <div class="col-12">
             <br>
 {#            提交文章的表单#}
-            <form method="POST" action="{% url 'article:article_create' %}">
+            <form method="POST" action="{% url 'article:article_create' %}", enctype="multipart/form-data">
 {#                Django中需要POST数据的笛梵个必须有csrf_token#}
                 {% csrf_token %}
                 <div>
@@ -39,6 +39,11 @@
                 <div class="form-group">
                     <label for="tags">标签</label>
                     <input type="text" class="form-control col-3" id="tags" name="tags">
+                </div>
+{#                文章标题图#}
+                <div class="form-group">
+                    <label for="avatar">标题图</label>
+                    <input type="file" class="form-control-file" name="avatar" id="avatar">
                 </div>
 {#                文章正文#}
                 <div class="form-group">

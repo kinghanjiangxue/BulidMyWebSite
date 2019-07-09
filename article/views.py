@@ -46,26 +46,6 @@ def article_list(request):
     # 查询集排序
     if order == 'total_views':
         article_list = article_list.order_by('-total_views')
-    # # 用户搜索逻辑
-    # if search:
-    #     if order == 'total_views':
-    #         # 用Q对象进行联合搜索
-    #         article_list = ArticlePost.objects.filter(
-    #             Q(title__icontains=search) |
-    #             Q(body__icontains=search)
-    #         ).order_by('-total_views')
-    #     else:
-    #         article_list = ArticlePost.objects.filter(
-    #             Q(title__icontains=search) |
-    #             Q(body__icontains=search)
-    #         )
-    # else:
-    #     # 将search参数置为空
-    #     search = ''
-    #     if order == 'total_views':
-    #         article_list = ArticlePost.objects.all().order_by('-total_views')
-    #     else:
-    #         article_list = ArticlePost.objects.all()
 
     # 每页显示3篇文章
     paginator = Paginator(article_list, 3)
@@ -124,7 +104,7 @@ def article_create(request):
     # 判断用户是否提交数据
     if request.method == 'POST':
         # 将提交的数据赋值到表单实例中
-        article_post_form = ArticlePostForm(data=request.POST)
+        article_post_form = ArticlePostForm(request.POST, request.FILES)
         # 判断提交的数据是否满足模型的要求
         if article_post_form.is_valid():
             # 保存数据，但暂时不提交到数据库中

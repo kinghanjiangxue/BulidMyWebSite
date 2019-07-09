@@ -5,10 +5,9 @@ from django.contrib.auth.models import User
 
 # timezone 用于处理时间相关的事务
 from django.utils import timezone
-
 from django.urls import reverse
-
 from taggit.managers import TaggableManager
+from PIL import Image
 
 
 # 栏目的model
@@ -37,6 +36,25 @@ class ArticlePost(models.Model):
                                verbose_name='栏目')
     # 文章标签
     tags = TaggableManager(blank=True)
+
+    # 文章标题图
+    avatar = models.ImageField(upload_to='article/%Y%m%d',blank=True)
+
+    # 保存时候处理图片
+    def save(self, *args, **kwargs):
+        # 调用原有的save（）的功能
+        article = super(ArticlePost, self).save(*args, **kwargs)
+
+        # 固定宽度缩放图片大小
+        if self.avatar and not kwargs.get('update_fields'):
+            image = Image.open(self.avatar)
+            (x, y) = image.size
+            new_x = 400
+            new_y = int(new_x * (y/x))
+            resized_image = image.resize((new_x, new_y), Image.ANTIALIAS)
+            resized_image.save(self.avatar.path)
+
+        return article
 
     # 文章标题。 model.CharField 为字符串字段，用于保存较短的字符串，比如标题.max_length指定字符最大长度
     title = models.CharField(max_length=100, verbose_name='标题')

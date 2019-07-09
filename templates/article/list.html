@@ -48,8 +48,15 @@
 
           {% for article in articles %}
 
+{#              标题图#}
+              {% if article.avatar %}
+                  <div class="col-3">
+                    <img src="{{ article.avatar.url }}" alt="avatar" style="max-width: 100%; border-radius: 20px">
+                  </div>
+              {% endif %}
+
 {#            文章内容#}
-           <div class="col-12">
+           <div class="col">
 
 {#                栏目#}
                {% if article.column %}
@@ -82,9 +89,9 @@
                     <span style="color: blue">{{ article.created_time|date:'Y-m-d' }}发布&nbsp;&nbsp;&nbsp;</span>
                     <span style="color: -moz-mac-accentdarkestshadow">{{ article.update_time|date:'Y-m-d' }}更新</span>
                 </P>
-                <hr>
-           </div>
 
+           </div>
+            <hr style="width: 100%;">
           {% endfor %}
 
       </div>
@@ -103,25 +110,10 @@
 
 {#            如果不是最末页，则显示翻页按钮#}
             {% if articles.has_next %}
-                <a href="?page={{ articles.next_page_number }}&order={{ order }}&seach={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-secondary">{{ articles.next_page_number }}</a>
+                <a href="?page={{ articles.next_page_number }}&order={{ order }}&search={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-secondary">{{ articles.next_page_number }}</a>
                 <span>...</span>
-                <a href="?page={{ articles.paginator.num_pages }}&order={{ order }}&search={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-success"> {{ articles.paginator.num_pages }} &raquo;</a>
+                <a href="?page={{ articles.paginator.num_pages }}&order={{ order }}&search={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-success"> {{ articles.paginator.num_pages }}&raquo;</a>
             {% endif %}
-            </span> {% if articles.has_previous %}
-                    <a href="?page=1&order={{ order }}&search={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-success">&laquo;1</a>
-                    <span>...</span>
-                    <a href="?page={{ articles.previous_page_number }}&order={{ order }}&search={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-secondary">{{ articles.previous_page_number }}</a>
-                {% endif %}
-{#            当前页面#}
-            <span class="current btn btn-danger btn-lg">{{ articles.number }}</span>
-
-{#            如果不是最末页，则显示翻页按钮#}
-            {% if articles.has_next %}
-                <a href="?page={{ articles.next_page_number }}&order={{ order }}&seach={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-secondary">{{ articles.next_page_number }}</a>
-                <span>...</span>
-                <a href="?page={{ articles.paginator.num_pages }}&order={{ order }}&search={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-success"> {{ articles.paginator.num_pages }} &raquo;</a>
-            {% endif %}
-            </span>
 
         </div>
     </div>
