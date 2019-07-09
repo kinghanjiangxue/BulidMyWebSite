@@ -16,10 +16,10 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{% url 'article:article_list' %}?search={{ search }}">最新</a>
+                <a href="{% url 'article:article_list' %}?search={{ search }}&column={{ column }}&tag={{ tag }}">最新</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="{% url 'article:article_list' %}?order=total_views&search={{ search }}">最热</a>
+                <a href="{% url 'article:article_list' %}?order=total_views&search={{ search }}&column={{ column }}&tag={{ tag }}">最热</a>
             </li>
         </ol>
     </nav>
@@ -53,13 +53,13 @@
 
 {#                栏目#}
                {% if article.column %}
-                   <button type="button" class="btn btn-sm mb-2 btn-success">{{ article.column }}</button>
+                   <button type="button" class="btn btn-sm mb-2 btn-success"   href="{% url 'article:article_list' %}?tag={{ tag }}&column={{ column }} ">{{ article.column }}</button>
                {% endif %}
 
 {#                标签#}
                 <span>
                     {% for tag in article.tags.all %}
-                        <a href="{% url 'article:article_list' %}?tag={{ tag }}" class="badge badge-secondary">{{ tag }}</a>
+                        <a href="{% url 'article:article_list' %}?tag={{ tag }}&column={{ column }}" class="badge badge-secondary">{{ tag }}</a>
                     {% endfor %}
                 </span>
 
@@ -94,18 +94,32 @@
             <span class="step-links">
 {#                如果不是第一页，则页码上显示翻页#}
                 {% if articles.has_previous %}
-                    <a href="?page=1&order={{ order }}&search={{ search }}" class="btn btn-success">&laquo;1</a>
+                    <a href="?page=1&order={{ order }}&search={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-success">&laquo;1</a>
                     <span>...</span>
-                    <a href="?page={{ articles.previous_page_number }}&order={{ order }}&search={{ search }}" class="btn btn-secondary">{{ articles.previous_page_number }}</a>
+                    <a href="?page={{ articles.previous_page_number }}&order={{ order }}&search={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-secondary">{{ articles.previous_page_number }}</a>
                 {% endif %}
 {#            当前页面#}
             <span class="current btn btn-danger btn-lg">{{ articles.number }}</span>
 
 {#            如果不是最末页，则显示翻页按钮#}
             {% if articles.has_next %}
-                <a href="?page={{ articles.next_page_number }}&order={{ order }}&seach={{ search }}" class="btn btn-secondary">{{ articles.next_page_number }}</a>
+                <a href="?page={{ articles.next_page_number }}&order={{ order }}&seach={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-secondary">{{ articles.next_page_number }}</a>
                 <span>...</span>
-                <a href="?page={{ articles.paginator.num_pages }}&order={{ order }}&search={{ search }}" class="btn btn-success"> {{ articles.paginator.num_pages }} &raquo;</a>
+                <a href="?page={{ articles.paginator.num_pages }}&order={{ order }}&search={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-success"> {{ articles.paginator.num_pages }} &raquo;</a>
+            {% endif %}
+            </span> {% if articles.has_previous %}
+                    <a href="?page=1&order={{ order }}&search={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-success">&laquo;1</a>
+                    <span>...</span>
+                    <a href="?page={{ articles.previous_page_number }}&order={{ order }}&search={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-secondary">{{ articles.previous_page_number }}</a>
+                {% endif %}
+{#            当前页面#}
+            <span class="current btn btn-danger btn-lg">{{ articles.number }}</span>
+
+{#            如果不是最末页，则显示翻页按钮#}
+            {% if articles.has_next %}
+                <a href="?page={{ articles.next_page_number }}&order={{ order }}&seach={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-secondary">{{ articles.next_page_number }}</a>
+                <span>...</span>
+                <a href="?page={{ articles.paginator.num_pages }}&order={{ order }}&search={{ search }}&column={{ column }}&tag={{ tag }}" class="btn btn-success"> {{ articles.paginator.num_pages }} &raquo;</a>
             {% endif %}
             </span>
 
