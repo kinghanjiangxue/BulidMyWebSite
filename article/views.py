@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db.models import Q
 from comment.models import Comment
+from comment.forms import CommentForm
 
 
 # 文章列表
@@ -79,6 +80,9 @@ def article_detail(request, pk):
     article.total_views += 1
     article.save(update_fields=['total_views'])
 
+    # 引入评论表单
+    comment_form = CommentForm()
+
     # 将Markdown语法渲染成HTML的样式
     md = markdown.Markdown(
         extensions=[
@@ -93,7 +97,7 @@ def article_detail(request, pk):
     article.body = md.convert(article.body)
 
     # 需要传递给模板的对象
-    context = {'article': article, 'toc': md.toc, 'comments': comments}
+    context = {'article': article, 'toc': md.toc, 'comments': comments, 'comment_form': comment_form}
     # 载入模板，并返回context对象
     return render(request, 'article/detail.html', context)
 

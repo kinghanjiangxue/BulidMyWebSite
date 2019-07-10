@@ -23,11 +23,12 @@
     {% block content %} {% endblock content %}
 {#引入注脚#}
     {% include 'footer.html' %}
-{#layer插件依赖jquery磁能正常工作#}
+{#layer插件依赖jquery才能正常工作#}
     <script src="{% static 'jquery/jquery-3.4.1.js' %}"></script>
 {#引入Bootstrap的js文件#}
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 {#引入layer.js#}
     <script src="{% static 'layer/layer.js' %}"></script>
+    {% block script %}{% endblock script%}
 </body>
 </html>

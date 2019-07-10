@@ -57,7 +57,10 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="body"><strong>我也要评论：</strong></label>
-                        <textarea type="text" class="form-control" id="body" name="body" rows="2"></textarea>
+                        <div>
+                            {{ comment_form.media }}
+                            {{ comment_form.body }}
+                        </div>
                     </div>
 {#                    提交按钮#}
                     <button type="submit" class="btn btn-primary">发送</button>
@@ -104,5 +107,15 @@
     }
 
  </script>
+
+
+{% block script %}
+<script>
+    $(".django-ckeditor-widget").removeAttr("style");
+</script>
+{% endblock script %}
+
+
+
 
 {% endblock content %}
