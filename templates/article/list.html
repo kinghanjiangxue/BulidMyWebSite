@@ -85,9 +85,19 @@
 
                 <P>
 {#                    附加信息#}
-                    <span style="color: green">{{ article.total_views }}浏览&nbsp;&nbsp;&nbsp;</span>
-                    <span style="color: blue">{{ article.created_time|date:'Y-m-d' }}发布&nbsp;&nbsp;&nbsp;</span>
-                    <span style="color: -moz-mac-accentdarkestshadow">{{ article.update_time|date:'Y-m-d' }}更新</span>
+                    <span style="color: green">
+                        <i class="far fa-eye"></i>
+                        {{ article.total_views }}浏览&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <span>
+                        <i class="far fa-comment-dots"></i>
+                        {{ article.comments.count }}&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <span style="color: grey">
+                        <i class="far fa-clock"></i>
+                        {{ article.created_time|date:'Y-m-d' }}发布&nbsp;&nbsp;&nbsp;
+                    </span>
+{#                    <span style="color: -moz-mac-accentdarkestshadow">{{ article.update_time|date:'Y-m-d' }}更新</span>#}
                 </P>
 
            </div>
