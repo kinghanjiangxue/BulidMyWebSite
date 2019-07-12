@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load mptt_tags %}
 
 {#写入base.html中定义的title#}
 {% block title %}
@@ -78,6 +79,22 @@
 {#        显示评论#}
         <h4>共有{{ comments.count }}条评论</h4>
         <div>
+{#            遍历树形结构#}
+            {% recursetree comments%}
+{#                给node取个别名comment#}
+                {% with comment=node %}
+                    <div class="{% if comment.reply_to %}
+
+                    {% endif %}">
+
+                    </div>
+                {% endwith %}
+            {% endrecursetree %}
+
+
+
+
+
             {% for commment in comments %}
                 <hr>
                 <p>
