@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2175ed0-b00e-478a-8935-c03e138c0528" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/comment/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/comment/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/comment/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/comment/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/article/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article/detail.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -118,9 +114,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/article/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="746">
-              <caret line="100" column="35" lean-forward="true" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
+            <state relative-caret-position="481">
+              <caret line="209" column="7" selection-start-line="209" selection-start-column="7" selection-end-line="209" selection-end-column="7" />
               <folding>
+                <element signature="e#2972#2990#0#HTML" expanded="true" />
+                <element signature="e#3218#3247#0#HTML" expanded="true" />
+                <element signature="e#3289#3308#0#HTML" expanded="true" />
+                <element signature="e#3634#3653#0#HTML" expanded="true" />
+                <element signature="e#4717#4734#0#HTML" expanded="true" />
                 <element signature="e#2300#2320#0#HTML" expanded="true" />
                 <element signature="e#2378#2402#0#HTML" expanded="true" />
                 <element signature="e#2498#2544#0#HTML" expanded="true" />
@@ -357,12 +358,12 @@
       <option name="presentableId" value="Default" />
       <updated>1560482893318</updated>
       <workItem from="1560482897254" duration="19676000" />
-      <workItem from="1560931780453" duration="96935000" />
+      <workItem from="1560931780453" duration="102049000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116611000" />
+    <option name="totallyTimeSpent" value="121725000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -868,9 +869,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/article/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="100" column="35" lean-forward="true" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
+        <state relative-caret-position="481">
+          <caret line="209" column="7" selection-start-line="209" selection-start-column="7" selection-end-line="209" selection-end-column="7" />
           <folding>
+            <element signature="e#2972#2990#0#HTML" expanded="true" />
+            <element signature="e#3218#3247#0#HTML" expanded="true" />
+            <element signature="e#3289#3308#0#HTML" expanded="true" />
+            <element signature="e#3634#3653#0#HTML" expanded="true" />
+            <element signature="e#4717#4734#0#HTML" expanded="true" />
             <element signature="e#2300#2320#0#HTML" expanded="true" />
             <element signature="e#2378#2402#0#HTML" expanded="true" />
             <element signature="e#2498#2544#0#HTML" expanded="true" />
