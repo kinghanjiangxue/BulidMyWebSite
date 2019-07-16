@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2175ed0-b00e-478a-8935-c03e138c0528" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/comment/reply.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/18、博客网站搭建十八.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/18、博客网站搭建十八.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/article/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article/detail.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,15 +73,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/header.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="32" column="97" selection-start-line="32" selection-start-column="97" selection-end-line="32" selection-end-column="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/footer.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
@@ -111,21 +105,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/article/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="209" column="7" selection-start-line="209" selection-start-column="7" selection-end-line="209" selection-end-column="7" />
+            <state relative-caret-position="2662">
+              <caret line="238" column="9" selection-start-line="238" selection-start-column="9" selection-end-line="238" selection-end-column="9" />
               <folding>
-                <element signature="e#2972#2990#0#HTML" expanded="true" />
-                <element signature="e#3218#3247#0#HTML" expanded="true" />
-                <element signature="e#3289#3308#0#HTML" expanded="true" />
-                <element signature="e#3634#3653#0#HTML" expanded="true" />
-                <element signature="e#4717#4734#0#HTML" expanded="true" />
-                <element signature="e#2300#2320#0#HTML" expanded="true" />
-                <element signature="e#2378#2402#0#HTML" expanded="true" />
-                <element signature="e#2498#2544#0#HTML" expanded="true" />
+                <element signature="e#2977#2996#0#HTML" expanded="true" />
+                <element signature="e#3212#3242#0#HTML" expanded="true" />
+                <element signature="e#3305#3324#0#HTML" expanded="true" />
+                <element signature="e#3566#3585#0#HTML" expanded="true" />
+                <element signature="e#4802#4823#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/comment/reply.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -197,6 +197,7 @@
       <find>columns</find>
       <find>count</find>
       <find>CodeSnippet</find>
+      <find>post-comment</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -233,6 +234,7 @@
         <option value="$PROJECT_DIR$/comment/views.py" />
         <option value="$PROJECT_DIR$/comment/urls.py" />
         <option value="$PROJECT_DIR$/templates/article/detail.html" />
+        <option value="$PROJECT_DIR$/templates/comment/reply.html" />
       </list>
     </option>
   </component>
@@ -262,12 +264,6 @@
               <item name="myblog" type="b2602c69:ProjectViewProjectNode" />
               <item name="myblog" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myblog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myblog" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="article" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -358,12 +354,12 @@
       <option name="presentableId" value="Default" />
       <updated>1560482893318</updated>
       <workItem from="1560482897254" duration="19676000" />
-      <workItem from="1560931780453" duration="102049000" />
+      <workItem from="1560931780453" duration="103907000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121725000" />
+    <option name="totallyTimeSpent" value="123583000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -477,13 +473,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/env/lib/python3.7/site-packages/django/db/models/query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="886" column="8" selection-start-line="886" selection-start-column="8" selection-end-line="886" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/md_css/monokai.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -869,18 +858,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/article/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="209" column="7" selection-start-line="209" selection-start-column="7" selection-end-line="209" selection-end-column="7" />
+        <state relative-caret-position="2662">
+          <caret line="238" column="9" selection-start-line="238" selection-start-column="9" selection-end-line="238" selection-end-column="9" />
           <folding>
-            <element signature="e#2972#2990#0#HTML" expanded="true" />
-            <element signature="e#3218#3247#0#HTML" expanded="true" />
-            <element signature="e#3289#3308#0#HTML" expanded="true" />
-            <element signature="e#3634#3653#0#HTML" expanded="true" />
-            <element signature="e#4717#4734#0#HTML" expanded="true" />
-            <element signature="e#2300#2320#0#HTML" expanded="true" />
-            <element signature="e#2378#2402#0#HTML" expanded="true" />
-            <element signature="e#2498#2544#0#HTML" expanded="true" />
+            <element signature="e#2977#2996#0#HTML" expanded="true" />
+            <element signature="e#3212#3242#0#HTML" expanded="true" />
+            <element signature="e#3305#3324#0#HTML" expanded="true" />
+            <element signature="e#3566#3585#0#HTML" expanded="true" />
+            <element signature="e#4802#4823#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/comment/reply.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
         </state>
       </provider>
     </entry>
