@@ -26,9 +26,30 @@
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
 {#    csrf token#}
-    <script src="{% static 'csrf.js' %}"></script>
+    <script src="{% static 'csrf.js ' %}"></script>
     <script>
-        
+        $(function () {
+            $(".django-ckeditor-widget").removeAttr('style')
+        });
+
+        function confirm_submit(article_id, comment_id) {
+            {#从CKeditor中取值#}
+            let content = CKEDITOR.instances['id_body'].getData();
+
+            {#调用ajax与后端交换数据#}
+            $.ajax({
+                url: '/comment/post-comment/' + article_id + '/' + comment_id,
+                type: 'POST',
+                data: {body: content},
+
+                {#成功回调#}
+                success:function (e) {
+                    if (e === '200 OK'){
+                        parent.location.reload()
+                    }
+                }
+            })
+        }
     </script>
 </body>
 </html>

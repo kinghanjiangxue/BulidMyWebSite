@@ -12,7 +12,7 @@ class Comment(MPTTModel):
     body = RichTextField()
     created = models.DateTimeField(auto_now_add=True)
 
-    # mptt树形结构
+    # 新增，mptt树形结构
     parent = TreeForeignKey(
         'self',
         on_delete=models.CASCADE,
@@ -21,7 +21,7 @@ class Comment(MPTTModel):
         related_name='children'
     )
 
-    # 记录二级评论回复给谁, str
+    # 新增，记录二级评论回复给谁, str
     reply_to = models.ForeignKey(
         User,
         null=True,
