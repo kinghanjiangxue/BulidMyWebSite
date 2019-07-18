@@ -22,7 +22,9 @@ def post_comment(request, article_pk, parent_comment_id=None):
 
             # 二级回复
             if parent_comment_id:
-                parent_comment = Comment.objects.get(id=parent_comment_id)
+
+                parent_comment = get_object_or_404(Comment, id=parent_comment_id)
+                # parent_comment = Comment.objects.get(id=parent_comment_id)
                 # 若回复层级超过二级，则转换为二级
                 new_comment.parent_id = parent_comment.get_root().id
                 # 被回复人
