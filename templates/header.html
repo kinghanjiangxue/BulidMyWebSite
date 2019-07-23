@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% load notifications_tags %}
+{% notifications_unread as unread_count %}
 
 {#定义导航栏#}
 
@@ -25,9 +27,22 @@
 {#                如果用户已经登录，则显示用户名下拉框#}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropDown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {#                    小红点#}
+                    {% if unread_count %}
+                        <svg viewBox="0 0 8 8 " width="8px" height="8px">
+                            <circle r="4" cx="4" cy="4" fill="#ff6b6b"></circle>
+                        </svg>
+                    {% endif %}
                         {{ user.username }}
                     </a>
+
+
                     <div class="dropdown-menu" aria-labelledby="navbarDropDown">
+                        <a class="dropdown-item" href="#">通知
+                            {% if unread_count %}
+                            <span class="badge badge-danger">{{ unread_count }}</span>
+                            {% endif %}
+                        </a>
                         <a class="dropdown-item" href="{% url 'userprofile:logout' %}">退出登录</a>
                         <a class="dropdown-item" href="#" onclick="user_delete()">删除用户</a>
                         <a class="dropdown-item" href="{% url 'userprofile:edit' user.pk %}">个人信息</a>
