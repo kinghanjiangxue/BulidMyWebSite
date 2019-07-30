@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from article.models import ArticlePost
 
 
-class CommentNoticeListView(LoginRequiredMixin,ListView)：
+class CommentNoticeListView(LoginRequiredMixin, ListView):
     """通知列表"""
     # 上下文的名称
     context_object_name = 'notices'
@@ -13,7 +13,6 @@ class CommentNoticeListView(LoginRequiredMixin,ListView)：
     template_name = 'notice/list.html'
     # 登录重定向
     login_url = '/userprofile/login/'
-
 
     # 未读通知查询集
     def get_queryset(self):
@@ -36,4 +35,5 @@ class CommentNoticeUpdateView(View):
         else:
             request.user.notifications.mark_all_as_read()
             return redirect('notice:list')
+
 
