@@ -6,11 +6,11 @@ from .forms import CommentForm
 from .models import Comment
 from django.contrib.auth.models import User
 from notifications.signals import notify
-
+from django.http import JsonResponse
 
 # 评论文章
 @login_required(login_url='/userprofile/login/')
-# 新增参数 parent_comment_id
+# 参数 parent_comment_id
 def post_comment(request, article_pk, parent_comment_id=None):
     article = get_object_or_404(ArticlePost, id=article_pk)
 
@@ -41,7 +41,7 @@ def post_comment(request, article_pk, parent_comment_id=None):
                         target=article,
                         action_object=new_comment,
                     )
-                return HttpResponse('200 OK')
+                return JsonResponse({"code": "200 OK", "new_comment_id": new_comment.id})
 
             new_comment.save()
 
@@ -53,8 +53,10 @@ def post_comment(request, article_pk, parent_comment_id=None):
                     target=article,
                     action_object=new_comment,
                 )
+            # 代码，添加锚点
+            redirect_url = article.get_absolute_url() + '#comment_elem_' + str(new_comment.id)
 
-            return redirect(article)
+            return redirect(redirect_url)
         else:
             return HttpResponse("表单内容有误，请重新填写。")
     # 处理 GET 请求
