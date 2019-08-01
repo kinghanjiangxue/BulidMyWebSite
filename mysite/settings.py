@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'article',
     'userprofile',
     'password_reset',
@@ -47,7 +48,23 @@ INSTALLED_APPS = [
     'mptt',
     'notifications',
     'notice',
+    # allauth 启动必须项
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # 可添加需要的三方登录
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.weibo',
+    'allauth.socialaccount.providers.weixin',
+    'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.douban',
+    'allauth.socialaccount.providers.baidu',
 ]
+
+# 设置站点
+SITE_ID = 1
+# 登录成功后重定向地址
+LOGIN_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -72,12 +89,22 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
 
+AUTHENTICATION_BACKENDS  = (
+    # django后台可独立于allauth 登录
+    'django.contrib.auth.backends.ModelBackend',
+    # 配置 allauth 独立的认证方法。如emial 登录
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+
 WSGI_APPLICATION = 'mysite.wsgi.application'
+
 
 
 # Database
