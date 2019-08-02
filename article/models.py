@@ -71,6 +71,14 @@ class ArticlePost(models.Model):
     # 文章的更新时间。参数 auto_now=True，指定每次数据跟新是自动写入当前的时间
     update_time = models.DateTimeField(auto_now=True, verbose_name='更新时间')
 
+    def was_created_recently(self):
+        # 若文章是'最近发表'，则返回TRUE
+        diff = timezone.now() - self.created_time
+        if diff.days <= 0 and diff.seconds < 60:
+            return True
+        else:
+            return False
+
     # 函数 __str__定义当调用对象的str()方法的时候的返回值内容，这里后台管理系统的可以看到标题，不写这个看到的会是字段
     def __str__(self):
         return self.title
