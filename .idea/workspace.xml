@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2175ed0-b00e-478a-8935-c03e138c0528" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/document/21、博客网站搭建二十一(三方登录).md" beforeDir="false" afterPath="$PROJECT_DIR$/document/21、博客网站搭建二十一(三方登录).md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -361,12 +356,12 @@
       <option name="presentableId" value="Default" />
       <updated>1560482893318</updated>
       <workItem from="1560482897254" duration="19676000" />
-      <workItem from="1560931780453" duration="138753000" />
+      <workItem from="1560931780453" duration="138967000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158429000" />
+    <option name="totallyTimeSpent" value="158643000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
