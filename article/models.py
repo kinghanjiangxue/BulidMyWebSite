@@ -74,7 +74,7 @@ class ArticlePost(models.Model):
     def was_created_recently(self):
         # 若文章是'最近发表'，则返回TRUE
         diff = timezone.now() - self.created_time
-        if diff.days <= 0 and diff.seconds < 60:
+        if diff.days == 0 and diff.seconds >= 0 and diff.seconds < 60:
             return True
         else:
             return False
