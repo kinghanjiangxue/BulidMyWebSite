@@ -1,0 +1,24 @@
+Watching for file changes with StatReloader
+"GET /article/article-list HTTP/1.1" 200 11633
+"GET /article/article-list HTTP/1.1" 200 11633
+"GET /article/article-list HTTP/1.1" 200 11633
+"GET /article/article-create HTTP/1.1" 200 6687
+"GET /notice/list/ HTTP/1.1" 200 5653
+"GET /article/article-detail/22/ HTTP/1.1" 200 48731
+/Users/administrator/Desktop/myblog/mysite/settings.py changed, reloading.
+Internal Server Error: /article/article-detail/9999/
+Traceback (most recent call last):
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/administrator/Desktop/myblog/article/views.py", line 74, in article_detail
+    article = ArticlePost.objects.get(pk=pk)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/db/models/query.py", line 408, in get
+    self.model._meta.object_name
+article.models.ArticlePost.DoesNotExist: ArticlePost matching query does not exist.
+"GET /article/article-detail/9999/ HTTP/1.1" 500 75781

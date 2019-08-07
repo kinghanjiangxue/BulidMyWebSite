@@ -13,6 +13,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from comment.models import Comment
 from comment.forms import CommentForm
+from django.shortcuts import get_object_or_404
 
 
 # 文章列表
@@ -71,7 +72,7 @@ def article_list(request):
 # 文章详情
 def article_detail(request, pk):
     # 取出所有文章
-    article = ArticlePost.objects.get(pk=pk)
+    article = get_object_or_404(ArticlePost, pk=pk)
 
     # 取出文章评论
     comments = Comment.objects.filter(article=pk)
