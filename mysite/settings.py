@@ -195,16 +195,19 @@ LOGGING = {
             'formatter': 'simple',
         },
 
-        'main_admins':{
+        'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler',
-            'fromatter': 'verbose',
+            'formatter': 'verbose',
         },
 
 
         'file': {
             'level': 'ERROR',
-            'class': 'logging.FileHandler',
+            # 'class': 'logging.FileHandler',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'when': 'midnight',
+            'backupCount': 30,
             'filename': os.path.join(BASE_DIR, 'logs/debug.log'),
             'formatter': 'verbose',
         },

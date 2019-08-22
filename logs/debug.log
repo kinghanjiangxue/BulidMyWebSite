@@ -1,0 +1,7 @@
+ERROR 2019-08-22 14:28:09,205 log 64305 123145369047040 Internal Server Error: /userprofile/logout/
+Traceback (most recent call last):
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view django.contrib.auth.logout didn't return an HttpResponse object. It returned None instead.
