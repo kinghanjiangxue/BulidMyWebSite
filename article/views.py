@@ -50,13 +50,33 @@ def article_list(request):
         article_list = article_list.order_by('-total_views')
 
     # 每页显示3篇文章
-    paginator = Paginator(article_list, 3)
+    paginator = Paginator(article_list, 2)
 
     # 获取url中的页面
-    page = request.GET.get('page')
+    page_number = request.GET.get('page')
 
     # 将导航栏对象相应的页码内容返回给 articles
-    articles = paginator.get_page(page)
+    articles = paginator.get_page(page_number)
+
+    # 当前页面页码
+    current_page_num = articles.number
+
+    # 获取前后页
+    page_range = list(range(max(current_page_num - 2, 1), current_page_num)) + \
+                 list(range(current_page_num, min(current_page_num + 2, paginator.num_pages) + 1))
+
+    # 显示省略号
+    if page_range[0] -1 >= 2:
+        page_range.insert(0, '...')
+    if page_range[-1] != paginator.num_pages:
+        page_range.append(paginator.num_pages)
+
+    # 显示首尾页码
+    if page_range[0] != 1:
+        page_range.insert(0, 1)
+
+    if page_range[-1] != paginator.num_pages:
+        page_range.append(paginator.num_pages)
 
     # 需要传递给模板（templates）的对象
     context = {'articles': articles,
@@ -64,6 +84,7 @@ def article_list(request):
                'search': search,
                'column': column,
                'tag': tag,
+               'page_range': page_range
                }
     # render函数，载入模板并返回context对象
     return render(request, 'article/list.html', context)

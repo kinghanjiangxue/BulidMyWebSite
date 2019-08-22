@@ -5,3 +5,69 @@ Traceback (most recent call last):
   File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 126, in _get_response
     "returned None instead." % (callback.__module__, view_name)
 ValueError: The view django.contrib.auth.logout didn't return an HttpResponse object. It returned None instead.
+ERROR 2019-08-22 17:47:28,389 log 2241 123145316601856 Internal Server Error: /article/article-list
+Traceback (most recent call last):
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/administrator/Desktop/myblog/article/views.py", line 62, in article_list
+    current_page_num = article_list.number
+AttributeError: 'QuerySet' object has no attribute 'number'
+ERROR 2019-08-22 17:47:45,954 log 2241 123145316601856 Internal Server Error: /article/article-list
+Traceback (most recent call last):
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/administrator/Desktop/myblog/article/views.py", line 62, in article_list
+    current_page_num = article_list.number
+AttributeError: 'QuerySet' object has no attribute 'number'
+ERROR 2019-08-22 17:47:49,475 log 2241 123145316601856 Internal Server Error: /article/article-list
+Traceback (most recent call last):
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/administrator/Desktop/myblog/article/views.py", line 62, in article_list
+    current_page_num = article_list.number
+AttributeError: 'QuerySet' object has no attribute 'number'
+ERROR 2019-08-22 17:51:12,945 log 2241 123145316601856 Internal Server Error: /article/article-list
+Traceback (most recent call last):
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/administrator/Desktop/myblog/article/views.py", line 62, in article_list
+    current_page_num = article_list.number
+AttributeError: 'QuerySet' object has no attribute 'number'
+ERROR 2019-08-22 17:51:19,215 log 2271 123145455251456 Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/administrator/Desktop/myblog/article/views.py", line 62, in article_list
+    current_page_num = article_list.number
+AttributeError: 'QuerySet' object has no attribute 'number'
+ERROR 2019-08-22 17:52:07,399 log 2271 123145455251456 Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/administrator/Desktop/myblog/env/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/administrator/Desktop/myblog/article/views.py", line 62, in article_list
+    # current_page_num = article_list.number
+AttributeError: 'QuerySet' object has no attribute 'number'
