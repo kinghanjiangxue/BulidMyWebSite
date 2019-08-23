@@ -266,3 +266,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 # 默认的发件人
 DEFAULT_FROM_EMAIL = '寒江雪的博客<752643013@qq.com>'
+
+
+BLOGS_NUM_PER_PAGE = 2
